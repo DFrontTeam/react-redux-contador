@@ -7,7 +7,7 @@ const TodoList = () => {
   let input = useRef();
   const dispatch = useDispatch();
   const todoList = useSelector((state) => state.todo);
-console.log('todoList',todoList)
+console.log('todoList2',todoList)
   return (
     <div
       style={{
