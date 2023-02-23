@@ -6,7 +6,7 @@ import { addToDo } from '../../store/todo-list/actions';
 const TodoList = () => {
   let input = useRef();
   const dispatch = useDispatch();
-  const todoList = useSelector((state) => state.todo);
+  const todoList = useSelector((state) => state.todoList.todo);
 console.log('todoList2',todoList)
   return (
     <div
