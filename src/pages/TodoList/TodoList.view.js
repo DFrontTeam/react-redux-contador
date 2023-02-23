@@ -1,21 +1,13 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { moveToDo, moveToDone } from '../../store/todo-list/actions';
+import { addToDo } from '../../store/todo-list/actions';
 
 const TodoList = () => {
+  let input = useRef();
   const dispatch = useDispatch();
-  const todoList = useSelector((state) => state.todoList.todo);
-  const doneList = useSelector((state) => state.todoList.done);
-
-  const moveToDoHandler = (value) => {
-    dispatch(moveToDo(value));
-  };
-
-  const moveToDoneHandler = (value) => {
-    dispatch(moveToDone(value));
-  };
-
+  const todoList = useSelector((state) => state.todo);
+console.log('todoList',todoList)
   return (
     <div
       style={{
@@ -35,24 +27,28 @@ const TodoList = () => {
         }}
       >
         <div>
-          <h3>Todo</h3>
-          <ul>
-            {todoList.map((i) => (
-              <li>
-                <a onClick={() => moveToDoneHandler(i)}>{i}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h3>Done</h3>
-          <ul>
-            {doneList.map((i) => (
-              <li>
-                <a onClick={() => moveToDoHandler(i)}>{i}</a>
-              </li>
-            ))}
-          </ul>
+          <h3>Añade una tarea</h3>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (!input.value.trim()) {
+
+                return;
+              }
+              console.log('input.value',input.value)
+              dispatch(addToDo(input.value));
+              input.value = '';
+            }}
+          >
+            <input
+              ref={(node) => {
+                input = node;
+              }}
+              type="text"
+            />
+            <button type="submit">Enviar</button>
+          </form>
+          <p>VALOR: {todoList}</p>
         </div>
       </div>
     </div>

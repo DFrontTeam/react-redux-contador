@@ -1,14 +1,8 @@
 import { actionsTypes } from './reducer';
-export const moveToDo = (payload) => {
+export const addToDo = (payload) => {
+  console.log('action:',payload)
   return {
-    type: actionsTypes.MOVE_TODO,
-    payload,
-  };
-};
-
-export const moveToDone = (payload) => {
-  return {
-    type: actionsTypes.MOVE_DONE,
-    payload,
+    type: actionsTypes.ADD_TODO,
+    payload:payload,
   };
 };
