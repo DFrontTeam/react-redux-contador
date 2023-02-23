@@ -5,7 +5,7 @@ import { decreaseCounter, increaseCounter } from '../../store/counter/actions';
 
 const CounterExample = () => {
   const dispatch = useDispatch();
-  const counter = useSelector((state) => state.counters.counter);
+  const counter = useSelector((state) => state.counter);
   const increaseHandler = () => dispatch(increaseCounter());
   const decreaseHandler = () => dispatch(decreaseCounter());
 
