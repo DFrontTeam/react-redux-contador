@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { moveToDo, moveToDone} from '../../store/todo-list/actions';
 
-const TodoList = () => {
+const TodoListColor = () => {
   const dispatch = useDispatch();
   const todoList = useSelector((state) => state.todoList.todo);
   const doneList = useSelector((state) => state.todoList.done);
@@ -28,7 +28,7 @@ const TodoList = () => {
         flexDirection: 'column',
       }}
     >
-      <h1>Todo list</h1>
+      <h1>Todo list Colors</h1>
       <div
         style={{
           display: 'flex',
@@ -39,20 +39,11 @@ const TodoList = () => {
       >
         <div>
           <h3>Todo</h3>
+          <p>Completa todas las tareas</p>
           <ul>
             {todoList.map((i) => (
               <li>
-                <a onClick={() => moveToDoneHandler(i)}>{i}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h3>Done</h3>
-          <ul>
-            {doneList.map((i) => (
-              <li>
-                <a onClick={() => moveToDoHandler(i)}>{i}</a>
+                <a style={{color:i.complete ? 'green' : 'red'}} onClick={() => moveToDoneHandler(i)}>{i}</a>
               </li>
             ))}
           </ul>
@@ -62,4 +53,4 @@ const TodoList = () => {
   );
 };
 
-export default TodoList;
+export default TodoListColor;
