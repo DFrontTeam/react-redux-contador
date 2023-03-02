@@ -10,19 +10,23 @@ const CounterPokemon = () => {
   const pokemon = useSelector((state) => state.countersPokemon.pokemonImg);
   
   useEffect(()=>{
-    getIdPokemon(counter,(result)=>
-    {
-      console.log('view',result)
-      dispatch(setPokemonImg(result))
-    }
-    )
-  },[counter,pokemon])
+    getIdPokemon(counter,(result)=> dispatch(setPokemonImg(result)))
+  },[counter])
 
   return (
     <div>
     <CounterExample title='Aumenta el contador para descubrir el pokemon'/>
-    <p>pokomeon:{pokemon}</p>
-    <img src={pokemon}/>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexDirection: 'column',
+      }}
+    >
+      Te ha tocado: {pokemon.name}
+      <img width="200" src={pokemon.img}/>
+    </div>
     </div>
   );
 };
