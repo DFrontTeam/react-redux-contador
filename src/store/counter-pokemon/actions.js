@@ -1,8 +1,8 @@
 import { actionTypes } from './reducer';
-export const increaseCounter = () => {
-  return { type: actionTypes.INCREASE_COUNTER };
-};
-
-export const decreaseCounter = () => {
-  return { type: actionTypes.DECREASE_COUNTER };
-};
+export const setPokemon = (payload) => {
+  console.log('action:',payload)
+  return {
+    type: actionsTypes.SET_POKEMON,
+    payload,
+  };
+}

@@ -1,37 +1,23 @@
-export const actionTypes = {
-  INCREASE_COUNTER: 'INCREASE_COUNTER',
-  DECREASE_COUNTER: 'DECREASE_COUNTER',
+export const actionsTypes = {
+  SET_POKEMON: 'SET_POKEMON',
 };
 
-export const initialStateCounter = {
-  counter: 1,
+export const initialStateCounterPokemon = {
+  pokemonImg: '',
 };
 
-const increaseCounter = (state) => {
+const setPokemon = (state,payload) => {
+  console.log('reducer',state,payload)
   return {
-    counter: state.counter + 1,
-  };
-};
-
-const decreaseCounter = (state) => {
-  return {
-    counter: state.counter - 1,
-  };
-};
-
-export const reducerCounterPokemon = (state = initialStateCounter, action) => {
-  let newState = {};
-  switch (action.type) {
-    case actionTypes.INCREASE_COUNTER:
-      newState = increaseCounter(state);
-      break;
-    case actionTypes.DECREASE_COUNTER:
-      newState = decreaseCounter(state);
-      break;
-    default:
-      newState = state;
-      break;
+    pokemonImg: payload
   }
+}
 
-  return newState;
+export const reducerCounterPokemon = (state = initialStateCounterPokemon, action) => {
+  switch (action.type) {
+    case actionsTypes.SET_POKEMON:
+      return setPokemon(state, action.payload);
+    default:
+      return state;
+  }
 };
