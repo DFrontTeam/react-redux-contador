@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { moveToPokemon, moveToCaught,setPokemon} from '../../store/todo-list-thunk/actions';
-import { getAllPokemon,getIdPokemon} from '../../services/pokemon/getAll';
+import { getAllPokemon} from '../../services/pokemon/getAll';
 
 const TodoListThunk = () => {
   const dispatch = useDispatch();

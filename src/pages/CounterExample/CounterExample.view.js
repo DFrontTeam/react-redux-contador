@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { decreaseCounter, increaseCounter } from '../../store/counter/actions';
 
-const CounterExample = () => {
+const CounterExample = ({title = 'Counter'}) => {
   const dispatch = useDispatch();
   const counter = useSelector((state) => state.counters.counter);
   const increaseHandler = () => dispatch(increaseCounter());
@@ -20,7 +20,7 @@ const CounterExample = () => {
     >
       {' '}
       <h1 style={{ textAlign: 'center' }}>
-        Counter Example to see how redux work
+        {title}
       </h1>{' '}
       <div
         style={{
@@ -31,7 +31,7 @@ const CounterExample = () => {
         }}
       >
         <button onClick={increaseHandler}>+</button>
-        <p>{counter}</p>
+        <p>{counter > 0 ? counter : 1}</p>
         <button onClick={decreaseHandler}>-</button>
       </div>
     </div>
