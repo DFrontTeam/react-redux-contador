@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CounterExample from '../CounterExample/CounterExample.view';
-import { setPokemon} from '../../store/counter-pokemon/actions';
+import { setPokemonImg} from '../../store/counter-pokemon/actions';
 import { getIdPokemon} from '../../services/pokemon/getId';
 
 const CounterPokemon = () => {
@@ -13,7 +13,7 @@ const CounterPokemon = () => {
     getIdPokemon(counter,(result)=>
     {
       console.log('view',result)
-      dispatch(setPokemon(result))
+      dispatch(setPokemonImg(result))
     }
     )
   },[counter,pokemon])

@@ -1,8 +1,8 @@
 import { actionTypes } from './reducer';
-export const setPokemon = (payload) => {
+export const setPokemonImg = (payload) => {
   console.log('action:',payload)
   return {
-    type: actionsTypes.SET_POKEMON,
+    type: actionsTypes.SET_POKEMON_IMG,
     payload,
   };
 }

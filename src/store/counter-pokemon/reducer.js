@@ -1,12 +1,12 @@
 export const actionsTypes = {
-  SET_POKEMON: 'SET_POKEMON',
+  SET_POKEMON_IMG: 'SET_POKEMON_IMG',
 };
 
 export const initialStateCounterPokemon = {
   pokemonImg: '',
 };
 
-const setPokemon = (state,payload) => {
+const setPokemonImg = (state,payload) => {
   console.log('reducer',state,payload)
   return {
     pokemonImg: payload
@@ -14,9 +14,10 @@ const setPokemon = (state,payload) => {
 }
 
 export const reducerCounterPokemon = (state = initialStateCounterPokemon, action) => {
+  console.log('ENTRO EN REDUCER')
   switch (action.type) {
-    case actionsTypes.SET_POKEMON:
-      return setPokemon(state, action.payload);
+    case actionsTypes.SET_POKEMON_IMG:
+      return setPokemonImg(state, action.payload);
     default:
       return state;
   }
