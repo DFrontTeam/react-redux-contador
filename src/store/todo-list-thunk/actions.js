@@ -1,14 +1,14 @@
 import { actionsTypes } from './reducer';
-export const moveToDo = (payload) => {
+export const moveToPokemon = (payload) => {
   return {
-    type: actionsTypes.MOVE_TODO,
+    type: actionsTypes.MOVE_POKEMON,
     payload,
   };
 };
 
-export const moveToDone = (payload) => {
+export const moveToCaught = (payload) => {
   return {
-    type: actionsTypes.MOVE_DONE,
+    type: actionsTypes.MOVE_CAUGHT,
     payload,
   };
 };

@@ -1,24 +1,24 @@
 import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { moveToDo, moveToDone,setPokemon} from '../../store/todo-list-thunk/actions';
+import { moveToPokemon, moveToCaught,setPokemon} from '../../store/todo-list-thunk/actions';
 import { getAllPokemon} from '../../services/pokemon/getAll';
 
 const TodoListThunk = () => {
   const dispatch = useDispatch();
-  const todoList = useSelector((state) => state.todoListThunk.todo);
-  const doneList = useSelector((state) => state.todoListThunk.done);
+  const pokemon = useSelector((state) => state.todoListThunk.pokemon);
+  const caughtPokemon = useSelector((state) => state.todoListThunk.caughtPokemon);
 
   useEffect(()=>{
     getAllPokemon((result)=>dispatch(setPokemon(result)))
   },[])
 
-  const moveToDoHandler = (value) => {
-    dispatch(moveToDo(value));
+  const moveToPokemonHandler = (value) => {
+    dispatch(moveToPokemon(value));
   };
 
-  const moveToDoneHandler = (value) => {
-    dispatch(moveToDone(value));
+  const moveToCaughtHandler = (value) => {
+    dispatch(moveToCaught(value));
   };
   return (
     <div
@@ -41,9 +41,9 @@ const TodoListThunk = () => {
         <div>
           <h3>Pokemon por capturar</h3>
           <ul>
-            {todoList.map((i) => (
+            {pokemon.map((i) => (
               <li>
-                <a onClick={() => moveToDoneHandler(i)}>{i}</a>
+                <a onClick={() => moveToCaughtHandler(i)}>{i}</a>
               </li>
             ))}
           </ul>
@@ -51,9 +51,9 @@ const TodoListThunk = () => {
         <div>
           <h3>Pokemon capturados</h3>
           <ul>
-            {doneList.map((i) => (
+            {caughtPokemon.map((i) => (
               <li>
-                <a onClick={() => moveToDoHandler(i)}>{i}</a>
+                <a onClick={() => moveToPokemonHandler(i)}>{i}</a>
               </li>
             ))}
           </ul>
