@@ -31,7 +31,7 @@ const CounterExample = ({title = 'Counter'}) => {
         }}
       >
         <button onClick={increaseHandler}>+</button>
-        <p>{counter > 0 ? counter : 1}</p>
+        <p>{counter > 0 ? counter : 1 }</p>
         <button onClick={decreaseHandler}>-</button>
       </div>
     </div>
