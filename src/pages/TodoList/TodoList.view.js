@@ -7,7 +7,7 @@ const TodoList = () => {
   let input = useRef();
   const dispatch = useDispatch();
   const todoList = useSelector((state) => state.todoList.todo);
-console.log('todoList2',todoList)
+  console.log('todoList2', todoList);
   return (
     <div
       style={{
@@ -27,15 +27,14 @@ console.log('todoList2',todoList)
         }}
       >
         <div>
-          <h3>Añade una tarea</h3>
+          <h3>Añade una tarea:</h3>
           <form
             onSubmit={(e) => {
               e.preventDefault();
               if (!input.value.trim()) {
-
                 return;
               }
-              console.log('input.value',input.value)
+              console.log('input.value', input.value);
               dispatch(addToDo(input.value));
               input.value = '';
             }}
