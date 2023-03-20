@@ -27,7 +27,7 @@ const TodoList = () => {
         }}
       >
         <div>
-          <h3>Añade una tarea:</h3>
+          <h3>Añade una tarea: </h3>
           <form
             onSubmit={(e) => {
               e.preventDefault();
