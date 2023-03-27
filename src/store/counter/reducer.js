@@ -4,7 +4,7 @@ export const actionTypes = {
 };
 
 export const initialStateCounter = {
-  counter: 1,
+  counter: 200000,
 };
 
 const increaseCounter = (state) => {

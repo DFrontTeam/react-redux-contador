@@ -25,7 +25,7 @@ const CounterPokemon = () => {
       }}
     >
       Te ha tocado: {pokemon.name}
-      <img width="200" src={pokemon.img}/>
+      {pokemon.img ? <img width="200" src={pokemon.img}/> : <p>Pokemon desconocido :( Prueba otra vez</p>}
     </div>
     </div>
   );
